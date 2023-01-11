@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA4E10E1163A9B46AA657D93 /* libPods-XGenOutputUsageDemo_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA640D33B497DC924AEE9D87 /* libPods-XGenOutputUsageDemo_iOS.a */; };
+		CB2063992962F31000F28908 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2063972962F31000F28908 /* HomeViewController.swift */; };
+		CB20639A2962F31000F28908 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB2063982962F31000F28908 /* HomeViewController.xib */; };
 		CB4127612962EA6E002057C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4127602962EA6E002057C2 /* AppDelegate.swift */; };
-		CB4127632962EA6E002057C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4127622962EA6E002057C2 /* SceneDelegate.swift */; };
-		CB4127652962EA6E002057C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4127642962EA6E002057C2 /* ViewController.swift */; };
-		CB4127682962EA6E002057C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB4127662962EA6E002057C2 /* Main.storyboard */; };
 		CB41276A2962EA6E002057C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB4127692962EA6E002057C2 /* Assets.xcassets */; };
 		CB41276D2962EA6E002057C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB41276B2962EA6E002057C2 /* LaunchScreen.storyboard */; };
+		CBEEECE5296E8A16008DD6B4 /* efficient_b0__1_.fallback in Resources */ = {isa = PBXBuildFile; fileRef = CBEEECE2296E8A16008DD6B4 /* efficient_b0__1_.fallback */; };
+		CBEEECE9296EA85F008DD6B4 /* imagenet_labels_1000.json in Resources */ = {isa = PBXBuildFile; fileRef = CBEEECE8296EA85E008DD6B4 /* imagenet_labels_1000.json */; };
+		CBEEECEC296EA8BE008DD6B4 /* XGenEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07A2527EC23ED97F6757CEC2 /* Pods-XGenOutputUsageDemo_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XGenOutputUsageDemo_iOS.debug.xcconfig"; path = "Target Support Files/Pods-XGenOutputUsageDemo_iOS/Pods-XGenOutputUsageDemo_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		45F4E4FAADDB6BBDDB2B57CB /* Pods-XGenOutputUsageDemo_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XGenOutputUsageDemo_iOS.release.xcconfig"; path = "Target Support Files/Pods-XGenOutputUsageDemo_iOS/Pods-XGenOutputUsageDemo_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		CB2063972962F31000F28908 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CB2063982962F31000F28908 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		CB41275D2962EA6E002057C2 /* XGenOutputUsageDemo_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XGenOutputUsageDemo_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4127602962EA6E002057C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB4127622962EA6E002057C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB4127642962EA6E002057C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CB4127672962EA6E002057C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB4127692962EA6E002057C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB41276C2962EA6E002057C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB41276E2962EA6E002057C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBEEECE2296E8A16008DD6B4 /* efficient_b0__1_.fallback */ = {isa = PBXFileReference; lastKnownFileType = file; path = efficient_b0__1_.fallback; sourceTree = "<group>"; };
+		CBEEECE8296EA85E008DD6B4 /* imagenet_labels_1000.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imagenet_labels_1000.json; sourceTree = "<group>"; };
+		CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XGenEngine.swift; sourceTree = "<group>"; };
+		FA640D33B497DC924AEE9D87 /* libPods-XGenOutputUsageDemo_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XGenOutputUsageDemo_iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4E10E1163A9B46AA657D93 /* libPods-XGenOutputUsageDemo_iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD916834A9A12544EABAD57E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA640D33B497DC924AEE9D87 /* libPods-XGenOutputUsageDemo_iOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6641D691197933ACF97EB1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07A2527EC23ED97F6757CEC2 /* Pods-XGenOutputUsageDemo_iOS.debug.xcconfig */,
+				45F4E4FAADDB6BBDDB2B57CB /* Pods-XGenOutputUsageDemo_iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CB4127542962EA6D002057C2 = {
 			isa = PBXGroup;
 			children = (
 				CB41275F2962EA6E002057C2 /* XGenOutputUsageDemo_iOS */,
 				CB41275E2962EA6E002057C2 /* Products */,
+				B6641D691197933ACF97EB1B /* Pods */,
+				AD916834A9A12544EABAD57E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +84,25 @@
 		CB41275F2962EA6E002057C2 /* XGenOutputUsageDemo_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CBEEECEA296EA86B008DD6B4 /* Resource */,
 				CB4127602962EA6E002057C2 /* AppDelegate.swift */,
-				CB4127622962EA6E002057C2 /* SceneDelegate.swift */,
-				CB4127642962EA6E002057C2 /* ViewController.swift */,
-				CB4127662962EA6E002057C2 /* Main.storyboard */,
+				CB2063972962F31000F28908 /* HomeViewController.swift */,
+				CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */,
+				CB2063982962F31000F28908 /* HomeViewController.xib */,
 				CB4127692962EA6E002057C2 /* Assets.xcassets */,
 				CB41276B2962EA6E002057C2 /* LaunchScreen.storyboard */,
 				CB41276E2962EA6E002057C2 /* Info.plist */,
 			);
 			path = XGenOutputUsageDemo_iOS;
+			sourceTree = "<group>";
+		};
+		CBEEECEA296EA86B008DD6B4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEECE8296EA85E008DD6B4 /* imagenet_labels_1000.json */,
+				CBEEECE2296E8A16008DD6B4 /* efficient_b0__1_.fallback */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +112,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB4127712962EA6E002057C2 /* Build configuration list for PBXNativeTarget "XGenOutputUsageDemo_iOS" */;
 			buildPhases = (
+				B09D5880B65CFEBB09BB76B2 /* [CP] Check Pods Manifest.lock */,
 				CB4127592962EA6E002057C2 /* Sources */,
 				CB41275A2962EA6E002057C2 /* Frameworks */,
 				CB41275B2962EA6E002057C2 /* Resources */,
@@ -127,34 +166,53 @@
 			files = (
 				CB41276D2962EA6E002057C2 /* LaunchScreen.storyboard in Resources */,
 				CB41276A2962EA6E002057C2 /* Assets.xcassets in Resources */,
-				CB4127682962EA6E002057C2 /* Main.storyboard in Resources */,
+				CB20639A2962F31000F28908 /* HomeViewController.xib in Resources */,
+				CBEEECE9296EA85F008DD6B4 /* imagenet_labels_1000.json in Resources */,
+				CBEEECE5296E8A16008DD6B4 /* efficient_b0__1_.fallback in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B09D5880B65CFEBB09BB76B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XGenOutputUsageDemo_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB4127592962EA6E002057C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB4127652962EA6E002057C2 /* ViewController.swift in Sources */,
 				CB4127612962EA6E002057C2 /* AppDelegate.swift in Sources */,
-				CB4127632962EA6E002057C2 /* SceneDelegate.swift in Sources */,
+				CB2063992962F31000F28908 /* HomeViewController.swift in Sources */,
+				CBEEECEC296EA8BE008DD6B4 /* XGenEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CB4127662962EA6E002057C2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB4127672962EA6E002057C2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CB41276B2962EA6E002057C2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,55 +340,75 @@
 		};
 		CB4127722962EA6E002057C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07A2527EC23ED97F6757CEC2 /* Pods-XGenOutputUsageDemo_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FLBD7VX6BF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XGenOutputUsageDemo_iOS/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need choose photo to classify";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.XGenOutputUsageDemo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		CB4127732962EA6E002057C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45F4E4FAADDB6BBDDB2B57CB /* Pods-XGenOutputUsageDemo_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FLBD7VX6BF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XGenOutputUsageDemo_iOS/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need choose photo to classify";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.XGenOutputUsageDemo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -1,0 +1,16 @@
+PODS:
+  - xgen (1.0.0)
+
+DEPENDENCIES:
+  - xgen (from `xgen`)
+
+EXTERNAL SOURCES:
+  xgen:
+    :path: xgen
+
+SPEC CHECKSUMS:
+  xgen: 72f408834465aa5a67be1d434058ee34f32ced44
+
+PODFILE CHECKSUM: 9e6f3c4b64c0af51bc54e031275e64cb2b6091f1
+
+COCOAPODS: 1.11.3

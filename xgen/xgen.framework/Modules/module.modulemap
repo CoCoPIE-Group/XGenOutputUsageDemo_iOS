@@ -1,0 +1,6 @@
+framework module xgen {
+  umbrella header "xgen.h"
+  export *
+  module * { export * }
+  link framework "Metal"
+}
