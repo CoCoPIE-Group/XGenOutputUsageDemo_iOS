@@ -86,7 +86,7 @@ XGEN_EXPORT XGenHandle *XGenInitWithCPUOnly(const void *model_data,
  */
 XGEN_EXPORT XGenHandle *XGenInitWithFiles(const char *model_path,
                                           const char *data_path,
-                                          XGenPowerPolicy policy = XGenPowerDefault);
+                                          XGenPowerPolicy policy);
 /**
  * Run the model.
  */
