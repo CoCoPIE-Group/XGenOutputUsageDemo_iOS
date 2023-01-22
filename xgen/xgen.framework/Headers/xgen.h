@@ -79,6 +79,15 @@ XGEN_EXPORT XGenHandle *XGenInitWithCPUOnly(const void *model_data,
                                             size_t model_size);
 
 /**
+ * Initialize XGen with model files.
+ * In Fallback mode, data_path should be nullptr. The lifetime
+ * of the `model_data` must be at least as long as the lifetime of
+ * returned `XGenHandle`
+ */
+XGEN_EXPORT XGenHandle *XGenInitWithFiles(const char *model_path,
+                                          const char *data_path,
+                                          XGenPowerPolicy policy = XGenPowerDefault);
+/**
  * Run the model.
  */
 XGEN_EXPORT XGenStatus XGenRun(XGenHandle *handle);
