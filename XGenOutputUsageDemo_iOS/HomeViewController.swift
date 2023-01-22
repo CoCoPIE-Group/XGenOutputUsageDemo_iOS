@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
         loopCountTextField.text = "\(loopCount)"
     }
     
-    private func classify(image: UIImage) {
+    private func classify(image: UIImage) { // model data source preprocess
         photoImageView.image = image
         
         guard labels.isEmpty == false else {
@@ -82,30 +82,56 @@ class HomeViewController: UIViewController {
         outputLabel.text = "Classifying..."
         choosePhotoButton.isEnabled = false
         
+        /* scale image to model expected size*/
         guard let scaledImage = image.scaled(toWidth: imageWidth, toHeight: imageHeight) else {
             outputLabel.text = "Classification: image scaled failed"
             choosePhotoButton.isEnabled = true
             return
         }
         
-        guard let cgImage = scaledImage.cgImage, let provider = cgImage.dataProvider, let providerData = provider.data, let data = CFDataGetBytePtr(providerData) else {
+        /* get image pixel rgb */
+        guard let cgImage = scaledImage.cgImage else {
             outputLabel.text = "Classification: get scaled image pixel image failed"
             choosePhotoButton.isEnabled = true
             return
         }
         
-        let numberOfComponents = 4
-        var floatValues: [Float] = Array(repeating: 0, count: Int(imageWidth * imageHeight) * imageChannel)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let imageWidth = cgImage.width
+        let imageHeight = cgImage.height
+        let bytesPerPixel = 4
+        let bitsPerComponent = 8
+        let bytesPerRow = bytesPerPixel * imageWidth
+        let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Little.rawValue
+        
+        guard let context = CGContext(data: nil, width: imageWidth, height: imageHeight, bitsPerComponent: bitsPerComponent,
+                                      bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            outputLabel.text = "Classification: get scaled image pixel image failed"
+            choosePhotoButton.isEnabled = true
+            return
+        }
+        
+        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+
+        guard let buffer = context.data else {
+            outputLabel.text = "Classification: get scaled image pixel image failed"
+            choosePhotoButton.isEnabled = true
+            return
+        }
+
+        let pixelBuffer = buffer.bindMemory(to: UInt32.self, capacity: imageWidth * imageHeight)
+        
+        var floatValues: [Float] = Array(repeating: 0, count: imageWidth * imageHeight * imageChannel)
         var index = 0
-        let imageWidth = Int(scaledImage.size.width)
-        let imageHeigth = Int(scaledImage.size.height)
-        for i in 0..<imageWidth {
-            for j in 0..<imageHeigth {
-                let pixelData = ((imageWidth * j) + i) * numberOfComponents
+        
+        for i in 0 ..< Int(imageHeight) {
+            for j in 0 ..< Int(imageWidth) {
+                let offset = i * imageWidth + j
+                let color = pixelBuffer[offset]
                 
-                let r = (Float(data[pixelData]) / 255.0 - modelMean[0]) / modelStd[0]
-                let g = (Float(data[pixelData + 1]) / 255.0 - modelMean[1]) / modelStd[1]
-                let b = (Float(data[pixelData + 2]) / 255.0 - modelMean[2]) / modelStd[2]
+                let r = (Float(UInt8((color >> 24) & 255)) / 255.0 - modelMean[0]) / modelStd[0]
+                let g = (Float(UInt8((color >> 16) & 255)) / 255.0 - modelMean[1]) / modelStd[1]
+                let b = (Float(UInt8((color >> 8) & 255)) / 255.0 - modelMean[2]) / modelStd[2]
                 
                 floatValues[index] = r
                 index += 1
@@ -116,19 +142,15 @@ class HomeViewController: UIViewController {
             }
         }
         
-        floatValues.withUnsafeBytes { rawBufferPointer in
-            let rawPtr = rawBufferPointer.baseAddress!
-            
-            for _ in 0..<loopCount {
-                let date = Date()
-                guard let result = xgenEngine.run(rawPtr) else { continue }
-                if let name = getClassication(result) {
-                    let now = Date()
-                    let time = now.timeIntervalSince(date)
-                    outputLabel.text = "Classification: \(name) \(max(1, Int(time * 1000)))ms"
-                } else {
-                    outputLabel.text = "Classification: Detect error"
-                }
+        for _ in 0..<loopCount {
+            let date = Date()
+            guard let result = xgenEngine.run(floatValues) else { continue }
+            if let name = getClassication(result) {
+                let now = Date()
+                let time = now.timeIntervalSince(date)
+                outputLabel.text = "Classification: \(name) \(max(1, Int(time * 1000)))ms"
+            } else {
+                outputLabel.text = "Classification: Detect error"
             }
         }
         choosePhotoButton.isEnabled = true
@@ -196,6 +218,10 @@ private extension HomeViewController {
                 index = i
                 maxAccu = value
             }
+        }
+        
+        if index > 0 {
+            print("classication index: \(index)")
         }
         
         return index > 0 ? labels[index] : nil

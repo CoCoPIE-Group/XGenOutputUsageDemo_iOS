@@ -33,7 +33,7 @@ class XGenEngine {
         xgen = nil
     }
     
-    func run(_ inputData: UnsafeRawPointer) -> [Float]? {
+    func run(_ inputData: [Float]) -> [Float]? {
         guard let xgen = xgen else {
             print("valid xgen is not inited")
             return nil
@@ -44,22 +44,43 @@ class XGenEngine {
             return nil
         }
         
-        let inputSize = XGenGetTensorSizeInBytes(inputTensor)
-        print("input_size: \(inputSize)")
-        XGenCopyBufferToTensor(inputTensor, inputData, inputSize)
+        let floatMemorySize = MemoryLayout<Float>.size
         
-        XGenRun(xgen)
+        let inputSizeBytes = XGenGetTensorSizeInBytes(inputTensor)
+        let inputSize = inputSizeBytes / floatMemorySize
+        print("input_size: \(inputSize)")
+        
+        var input: [Float] = Array(repeating: 0, count: inputSize)
+        let inputChannelSize = inputSize / 3
+        for i in 0..<inputChannelSize {
+            for j in 0..<3 {
+                let srcIndex = i * 3 + j
+                let dstIndex = i + inputChannelSize * j
+                input[dstIndex] = inputData[srcIndex]
+            }
+        }
+        
+        input.withUnsafeBytes { rawBufferPointer in
+            let rawPtr = rawBufferPointer.baseAddress!
+            XGenCopyBufferToTensor(inputTensor, rawPtr, inputSizeBytes)
+        }
+        
+        guard XGenRun(xgen) == XGenOk else {
+            print("xgen run error")
+            return nil
+        }
         
         guard let outputTensor = XGenGetInputTensor(xgen, 0) else {
             print("output tensor init failed ")
             return nil
         }
-        let outputSize = XGenGetTensorSizeInBytes(outputTensor)
+        let outputSizeBytes = XGenGetTensorSizeInBytes(outputTensor)
+        let outputSize = outputSizeBytes / floatMemorySize
         print("output_size: \(outputSize)")
-        var output: [Float] = Array(repeating: 0, count: (outputSize / MemoryLayout<Float>.size))
+        var output: [Float] = Array(repeating: 0, count: outputSize)
         output.withUnsafeMutableBytes { mutableRawBufferPointer in
             let mutalbeRawPtr = mutableRawBufferPointer.baseAddress!
-            XGenCopyTensorToBuffer(outputTensor, mutalbeRawPtr, outputSize)
+            XGenCopyTensorToBuffer(outputTensor, mutalbeRawPtr, outputSizeBytes)
         }
         
         return output
