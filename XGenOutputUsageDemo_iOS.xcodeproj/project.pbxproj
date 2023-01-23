@@ -13,6 +13,14 @@
 		CB4127612962EA6E002057C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4127602962EA6E002057C2 /* AppDelegate.swift */; };
 		CB41276A2962EA6E002057C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB4127692962EA6E002057C2 /* Assets.xcassets */; };
 		CB41276D2962EA6E002057C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB41276B2962EA6E002057C2 /* LaunchScreen.storyboard */; };
+		CBC32104297D050900004FF3 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC32103297D050900004FF3 /* AIModel.swift */; };
+		CBC32106297D07EF00004FF3 /* ResourceLoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC32105297D07EF00004FF3 /* ResourceLoadManager.swift */; };
+		CBC32109297D1C1900004FF3 /* ModelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC32107297D1C1900004FF3 /* ModelListViewController.swift */; };
+		CBC3210E297D1F5400004FF3 /* GlobalConstant+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3210C297D1F5400004FF3 /* GlobalConstant+Distance.swift */; };
+		CBC3210F297D1F5400004FF3 /* GlobalConstant+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3210D297D1F5400004FF3 /* GlobalConstant+Screen.swift */; };
+		CBC32119297D270D00004FF3 /* ModelListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC32117297D270D00004FF3 /* ModelListContentView.swift */; };
+		CBC3211A297D270D00004FF3 /* ModelListContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBC32118297D270D00004FF3 /* ModelListContentView.xib */; };
+		CBC3211C297D293300004FF3 /* ModelListNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3211B297D293300004FF3 /* ModelListNameTableViewCell.swift */; };
 		CBEEECE5296E8A16008DD6B4 /* efficient_b0__1_.fallback in Resources */ = {isa = PBXBuildFile; fileRef = CBEEECE2296E8A16008DD6B4 /* efficient_b0__1_.fallback */; };
 		CBEEECE9296EA85F008DD6B4 /* imagenet_labels_1000.json in Resources */ = {isa = PBXBuildFile; fileRef = CBEEECE8296EA85E008DD6B4 /* imagenet_labels_1000.json */; };
 		CBEEECEC296EA8BE008DD6B4 /* XGenEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */; };
@@ -28,6 +36,14 @@
 		CB4127692962EA6E002057C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB41276C2962EA6E002057C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB41276E2962EA6E002057C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBC32103297D050900004FF3 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
+		CBC32105297D07EF00004FF3 /* ResourceLoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoadManager.swift; sourceTree = "<group>"; };
+		CBC32107297D1C1900004FF3 /* ModelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelListViewController.swift; sourceTree = "<group>"; };
+		CBC3210C297D1F5400004FF3 /* GlobalConstant+Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GlobalConstant+Distance.swift"; sourceTree = "<group>"; };
+		CBC3210D297D1F5400004FF3 /* GlobalConstant+Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GlobalConstant+Screen.swift"; sourceTree = "<group>"; };
+		CBC32117297D270D00004FF3 /* ModelListContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelListContentView.swift; sourceTree = "<group>"; };
+		CBC32118297D270D00004FF3 /* ModelListContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModelListContentView.xib; sourceTree = "<group>"; };
+		CBC3211B297D293300004FF3 /* ModelListNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelListNameTableViewCell.swift; sourceTree = "<group>"; };
 		CBEEECE2296E8A16008DD6B4 /* efficient_b0__1_.fallback */ = {isa = PBXFileReference; lastKnownFileType = file; path = efficient_b0__1_.fallback; sourceTree = "<group>"; };
 		CBEEECE8296EA85E008DD6B4 /* imagenet_labels_1000.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imagenet_labels_1000.json; sourceTree = "<group>"; };
 		CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XGenEngine.swift; sourceTree = "<group>"; };
@@ -84,16 +100,40 @@
 		CB41275F2962EA6E002057C2 /* XGenOutputUsageDemo_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CBC3210B297D1F2400004FF3 /* Util */,
 				CBEEECEA296EA86B008DD6B4 /* Resource */,
 				CB4127602962EA6E002057C2 /* AppDelegate.swift */,
-				CB2063972962F31000F28908 /* HomeViewController.swift */,
 				CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */,
+				CB2063972962F31000F28908 /* HomeViewController.swift */,
 				CB2063982962F31000F28908 /* HomeViewController.xib */,
+				CBC32114297D21D500004FF3 /* ModelList */,
 				CB4127692962EA6E002057C2 /* Assets.xcassets */,
 				CB41276B2962EA6E002057C2 /* LaunchScreen.storyboard */,
 				CB41276E2962EA6E002057C2 /* Info.plist */,
+				CBC32103297D050900004FF3 /* AIModel.swift */,
+				CBC32105297D07EF00004FF3 /* ResourceLoadManager.swift */,
 			);
 			path = XGenOutputUsageDemo_iOS;
+			sourceTree = "<group>";
+		};
+		CBC3210B297D1F2400004FF3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CBC3210C297D1F5400004FF3 /* GlobalConstant+Distance.swift */,
+				CBC3210D297D1F5400004FF3 /* GlobalConstant+Screen.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		CBC32114297D21D500004FF3 /* ModelList */ = {
+			isa = PBXGroup;
+			children = (
+				CBC32107297D1C1900004FF3 /* ModelListViewController.swift */,
+				CBC32117297D270D00004FF3 /* ModelListContentView.swift */,
+				CBC32118297D270D00004FF3 /* ModelListContentView.xib */,
+				CBC3211B297D293300004FF3 /* ModelListNameTableViewCell.swift */,
+			);
+			path = ModelList;
 			sourceTree = "<group>";
 		};
 		CBEEECEA296EA86B008DD6B4 /* Resource */ = {
@@ -166,6 +206,7 @@
 			files = (
 				CB41276D2962EA6E002057C2 /* LaunchScreen.storyboard in Resources */,
 				CB41276A2962EA6E002057C2 /* Assets.xcassets in Resources */,
+				CBC3211A297D270D00004FF3 /* ModelListContentView.xib in Resources */,
 				CB20639A2962F31000F28908 /* HomeViewController.xib in Resources */,
 				CBEEECE9296EA85F008DD6B4 /* imagenet_labels_1000.json in Resources */,
 				CBEEECE5296E8A16008DD6B4 /* efficient_b0__1_.fallback in Resources */,
@@ -204,9 +245,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBC32109297D1C1900004FF3 /* ModelListViewController.swift in Sources */,
+				CBC32119297D270D00004FF3 /* ModelListContentView.swift in Sources */,
+				CBC3210E297D1F5400004FF3 /* GlobalConstant+Distance.swift in Sources */,
 				CB4127612962EA6E002057C2 /* AppDelegate.swift in Sources */,
 				CB2063992962F31000F28908 /* HomeViewController.swift in Sources */,
+				CBC3210F297D1F5400004FF3 /* GlobalConstant+Screen.swift in Sources */,
 				CBEEECEC296EA8BE008DD6B4 /* XGenEngine.swift in Sources */,
+				CBC32106297D07EF00004FF3 /* ResourceLoadManager.swift in Sources */,
+				CBC3211C297D293300004FF3 /* ModelListNameTableViewCell.swift in Sources */,
+				CBC32104297D050900004FF3 /* AIModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,13 +396,14 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FLBD7VX6BF;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 998V4UKV5W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XGenOutputUsageDemo_iOS/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need choose photo to classify";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -363,9 +412,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.cocopie.cocoaplayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Cocoplayer_dev;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -385,13 +435,14 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FLBD7VX6BF;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 998V4UKV5W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XGenOutputUsageDemo_iOS/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need choose photo to classify";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -400,9 +451,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.cocopie.cocoaplayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Cocoplayer_dev;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

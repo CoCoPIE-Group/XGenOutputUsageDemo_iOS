@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ModelListContentView" customModule="XGenOutputUsageDemo_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="510"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoP-Sw-x62">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtI-Ud-BTt">
+                            <rect key="frame" x="0.0" y="0.0" width="82" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="6v5-78-vgd"/>
+                                <constraint firstAttribute="height" constant="44" id="NFq-Zj-9f7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Cancel"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLj-2f-MdA">
+                            <rect key="frame" x="323" y="0.0" width="60" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="fB9-mb-CeF"/>
+                                <constraint firstAttribute="height" constant="44" id="nwT-ch-n8b"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Refresh"/>
+                            <connections>
+                                <action selector="refreshButtonPressed" destination="iN0-l3-epB" eventType="touchUpInside" id="iSH-WV-WNG"/>
+                            </connections>
+                        </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="MuH-s5-FPv">
+                            <rect key="frame" x="343" y="12" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="VLj-2f-MdA" firstAttribute="centerY" secondItem="xoP-Sw-x62" secondAttribute="centerY" id="CIt-3W-YHi"/>
+                        <constraint firstItem="dtI-Ud-BTt" firstAttribute="centerY" secondItem="xoP-Sw-x62" secondAttribute="centerY" id="awy-F5-vkc"/>
+                        <constraint firstItem="MuH-s5-FPv" firstAttribute="centerX" secondItem="VLj-2f-MdA" secondAttribute="centerX" id="g8w-HR-QPM"/>
+                        <constraint firstItem="MuH-s5-FPv" firstAttribute="centerY" secondItem="VLj-2f-MdA" secondAttribute="centerY" id="ta9-QN-E54"/>
+                        <constraint firstAttribute="height" constant="44" id="ufh-8h-Ic6"/>
+                        <constraint firstItem="dtI-Ud-BTt" firstAttribute="leading" secondItem="xoP-Sw-x62" secondAttribute="leading" constant="10" id="wFZ-sk-V9P"/>
+                        <constraint firstAttribute="trailing" secondItem="VLj-2f-MdA" secondAttribute="trailing" constant="10" id="xL7-Sa-LcD"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jVT-ws-01T">
+                    <rect key="frame" x="0.0" y="44" width="393" height="466"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="NYZ-9x-sKI"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="iod-rs-SXD"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="jVT-ws-01T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6It-cn-DRf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jVT-ws-01T" secondAttribute="trailing" id="NoT-Am-U8h"/>
+                <constraint firstItem="jVT-ws-01T" firstAttribute="top" secondItem="xoP-Sw-x62" secondAttribute="bottom" id="Zob-3G-FLQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jVT-ws-01T" secondAttribute="bottom" id="dam-Q2-oYH"/>
+                <constraint firstAttribute="trailing" secondItem="xoP-Sw-x62" secondAttribute="trailing" id="ic4-Me-6dj"/>
+                <constraint firstItem="xoP-Sw-x62" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vxe-J7-bAt"/>
+                <constraint firstItem="xoP-Sw-x62" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zPp-JB-2Oo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="dtI-Ud-BTt" id="dOz-0z-Inz"/>
+                <outlet property="indicator" destination="MuH-s5-FPv" id="jfT-Ov-CfQ"/>
+                <outlet property="refreshButton" destination="VLj-2f-MdA" id="mEr-fI-JVX"/>
+                <outlet property="tableView" destination="jVT-ws-01T" id="l6D-2y-G8v"/>
+            </connections>
+            <point key="canvasLocation" x="113.74045801526717" y="140.84507042253523"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

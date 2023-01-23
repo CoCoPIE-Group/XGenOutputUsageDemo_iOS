@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navi = UINavigationController(rootViewController: homeVC)
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
         window?.rootViewController = navi
         window?.makeKeyAndVisible()
         

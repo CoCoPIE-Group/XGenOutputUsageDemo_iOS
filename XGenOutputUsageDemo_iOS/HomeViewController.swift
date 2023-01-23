@@ -14,12 +14,28 @@ class HomeViewController: UIViewController {
     @IBOutlet var loopCountTextField: UITextField!
     @IBOutlet var choosePhotoButton: UIButton!
     
+    @IBOutlet var modelNameLabel: UILabel!
+    @IBOutlet var modelListContainer: UIView!
+    
+    @IBOutlet var downloadingView: UIView!
+    
     private var loopCount = 1
     private let imageWidth: CGFloat = 224
     private let imageHeight: CGFloat = 224
     private let imageChannel = 3
     private let modelMean: [Float] = [0.485, 0.456, 0.406]
     private let modelStd: [Float] = [0.229, 0.224, 0.225]
+    
+    private var modelList: [AIModel] = []
+    private var currentModel: AIModel? {
+        didSet {
+            modelNameLabel.text = currentModel?.name
+        }
+    }
+    
+    private var resourceManager: ResourceLoadManager {
+        ResourceLoadManager.default
+    }
     
     private var xgenEngine: XGenEngine?
     private var labels: [String] = []
@@ -33,10 +49,20 @@ class HomeViewController: UIViewController {
         choosePhotoButton.layer.cornerRadius = 10
         photoImageView.layer.cornerRadius = 5
         
+        modelListContainer.layer.borderColor = UIColor.lightGray.cgColor
+        modelListContainer.layer.borderWidth = 0.5
+        
         outputLabel.text = "Classification:"
         
-        readLabels()
-        initXGen()
+        readCacheModelList()
+        readPreUsedModel()
+        
+        if let model = currentModel,
+            load(model: model) {
+            print("load preused model succ")
+        } else {
+            _ = load(model: resourceManager.localModel)
+        }
     }
     
     @IBAction func choosePhotoButtonPressed() {
@@ -52,6 +78,36 @@ class HomeViewController: UIViewController {
     @IBAction func backButtonPressed() {
         getLoopCount()
         loopCountTextField.resignFirstResponder()
+    }
+    
+    @IBAction func changeModelButtonPressed() {
+        let vc = ModelListViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.selectModel = { [weak self] model in
+            guard let self = self, model.name != self.currentModel?.name else { return }
+            
+            if model.isLocal {
+                _ = self.load(model: model)
+                return
+            }
+            
+            self.downloadingView.isHidden = false
+            ResourceLoadManager.default.download(model: model) { [weak self] succ in
+                guard let self = self else { return }
+                self.downloadingView.isHidden = true
+                guard succ else {
+                    self.view.makeToast("download failed, please retry later", position: .center)
+                    return
+                }
+                
+                let preModel = self.currentModel
+                if self.load(model: model) == false {
+                    self.view.makeToast("use model failed, please retry", position: .center)
+                    _ = self.load(model: preModel ?? ResourceLoadManager.default.localModel)
+                }
+            }
+        }
+        self.present(vc, animated: false)
     }
     
     private func getLoopCount() {
@@ -178,31 +234,63 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 
 // MARK: - util function
 private extension HomeViewController {
-    func readLabels() {
-        guard let url = Bundle.main.url(forResource: "imagenet_labels_1000", withExtension: "json"),
-            let data = try? Data(contentsOf: url) else {
-            print("labels load failed")
-            return
+    func readCacheModelList() {
+        guard let list = resourceManager.getCachedList(), !list.isEmpty else { return }
+        modelList = [resourceManager.localModel] + list
+    }
+    
+    static let preUsedModelNameKey = "preUsedModelNameKey"
+    func readPreUsedModel() {
+        guard let name = UserDefaults.standard.string(forKey: Self.preUsedModelNameKey) else { return }
+        for model in modelList {
+            if model.name == name {
+                currentModel = model
+                break
+            }
+        }
+    }
+    
+    func load(model: AIModel) -> Bool {
+        guard resourceManager.isAllFileDownloaded(for: model) else {
+            resourceManager.clearDownloadedFile(for: model)
+            return false
+        }
+        
+        let labelFileURL = resourceManager.labelFileURL(for: model)
+        guard let data = try? Data(contentsOf: labelFileURL) else {
+            print("labels data load failed")
+            resourceManager.clearDownloadedFile(for: model)
+            return false
         }
         
         let jsonDecoder = JSONDecoder()
         guard let labelData = try? jsonDecoder.decode(LabelData.self, from: data) else {
             print("labels json decode failed")
-            return
+            return false
         }
         
-        labels = labelData.list.sorted(by: { l1, l2 in
+        let labels = labelData.list.sorted(by: { l1, l2 in
             l1.id < l2.id
         }).map { $0.name }
-    }
-    
-    func initXGen() {
-        guard let modelURL = Bundle.main.url(forResource: "efficient_b0__1_", withExtension: "fallback") else {
-            print("model load failed")
-            return
+        
+        let fallbackFileURL = resourceManager.fallbackFileURL(for: model)
+        let xgenEngine = XGenEngine(fallbackURL: fallbackFileURL)
+        
+        guard xgenEngine != nil, !labels.isEmpty else {
+            print("AI model load failed")
+            return false
         }
         
-        xgenEngine = XGenEngine(fallbackURL: modelURL)
+        UserDefaults.standard.set(model.name, forKey: Self.preUsedModelNameKey)
+        currentModel = model
+        self.labels = labels
+        self.xgenEngine = xgenEngine
+        
+        if let image = photoImageView.image {
+            DispatchQueue.main.async { [weak self] in self?.classify(image: image) }
+        }
+        
+        return true
     }
     
     func getClassication(_ result: [Float]) -> String? {
