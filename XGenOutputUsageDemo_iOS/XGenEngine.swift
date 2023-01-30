@@ -70,7 +70,7 @@ class XGenEngine {
             return nil
         }
         
-        guard let outputTensor = XGenGetInputTensor(xgen, 0) else {
+        guard let outputTensor = XGenGetOutputTensor(xgen, 0) else {
             print("output tensor init failed ")
             return nil
         }

@@ -22,6 +22,8 @@
 		CBC3211A297D270D00004FF3 /* ModelListContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBC32118297D270D00004FF3 /* ModelListContentView.xib */; };
 		CBC3211C297D293300004FF3 /* ModelListNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3211B297D293300004FF3 /* ModelListNameTableViewCell.swift */; };
 		CBEEECE5296E8A16008DD6B4 /* efficient_b0__1_.fallback in Resources */ = {isa = PBXBuildFile; fileRef = CBEEECE2296E8A16008DD6B4 /* efficient_b0__1_.fallback */; };
+		CBC843DE29876C4D006F91B8 /* efficientnet_b0_ra_3dd342df.fallback in Resources */ = {isa = PBXBuildFile; fileRef = CBC843DD29876C4D006F91B8 /* efficientnet_b0_ra_3dd342df.fallback */; };
+		CBC843E22987ABCB006F91B8 /* RGBAImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC843E12987ABCB006F91B8 /* RGBAImage.swift */; };
 		CBEEECE9296EA85F008DD6B4 /* imagenet_labels_1000.json in Resources */ = {isa = PBXBuildFile; fileRef = CBEEECE8296EA85E008DD6B4 /* imagenet_labels_1000.json */; };
 		CBEEECEC296EA8BE008DD6B4 /* XGenEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 		CBC32118297D270D00004FF3 /* ModelListContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModelListContentView.xib; sourceTree = "<group>"; };
 		CBC3211B297D293300004FF3 /* ModelListNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelListNameTableViewCell.swift; sourceTree = "<group>"; };
 		CBEEECE2296E8A16008DD6B4 /* efficient_b0__1_.fallback */ = {isa = PBXFileReference; lastKnownFileType = file; path = efficient_b0__1_.fallback; sourceTree = "<group>"; };
+		CBC843DD29876C4D006F91B8 /* efficientnet_b0_ra_3dd342df.fallback */ = {isa = PBXFileReference; lastKnownFileType = file; path = efficientnet_b0_ra_3dd342df.fallback; sourceTree = "<group>"; };
+		CBC843E12987ABCB006F91B8 /* RGBAImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBAImage.swift; sourceTree = "<group>"; };
 		CBEEECE8296EA85E008DD6B4 /* imagenet_labels_1000.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imagenet_labels_1000.json; sourceTree = "<group>"; };
 		CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XGenEngine.swift; sourceTree = "<group>"; };
 		FA640D33B497DC924AEE9D87 /* libPods-XGenOutputUsageDemo_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XGenOutputUsageDemo_iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,8 @@
 				CBC3210B297D1F2400004FF3 /* Util */,
 				CBEEECEA296EA86B008DD6B4 /* Resource */,
 				CB4127602962EA6E002057C2 /* AppDelegate.swift */,
+				CB2063972962F31000F28908 /* HomeViewController.swift */,
+				CBC843E12987ABCB006F91B8 /* RGBAImage.swift */,
 				CBEEECEB296EA8BE008DD6B4 /* XGenEngine.swift */,
 				CB2063972962F31000F28908 /* HomeViewController.swift */,
 				CB2063982962F31000F28908 /* HomeViewController.xib */,
@@ -140,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				CBEEECE8296EA85E008DD6B4 /* imagenet_labels_1000.json */,
-				CBEEECE2296E8A16008DD6B4 /* efficient_b0__1_.fallback */,
+				CBC843DD29876C4D006F91B8 /* efficientnet_b0_ra_3dd342df.fallback */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -207,9 +213,9 @@
 				CB41276D2962EA6E002057C2 /* LaunchScreen.storyboard in Resources */,
 				CB41276A2962EA6E002057C2 /* Assets.xcassets in Resources */,
 				CBC3211A297D270D00004FF3 /* ModelListContentView.xib in Resources */,
+				CBC843DE29876C4D006F91B8 /* efficientnet_b0_ra_3dd342df.fallback in Resources */,
 				CB20639A2962F31000F28908 /* HomeViewController.xib in Resources */,
 				CBEEECE9296EA85F008DD6B4 /* imagenet_labels_1000.json in Resources */,
-				CBEEECE5296E8A16008DD6B4 /* efficient_b0__1_.fallback in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +255,7 @@
 				CBC32119297D270D00004FF3 /* ModelListContentView.swift in Sources */,
 				CBC3210E297D1F5400004FF3 /* GlobalConstant+Distance.swift in Sources */,
 				CB4127612962EA6E002057C2 /* AppDelegate.swift in Sources */,
+				CBC843E22987ABCB006F91B8 /* RGBAImage.swift in Sources */,
 				CB2063992962F31000F28908 /* HomeViewController.swift in Sources */,
 				CBC3210F297D1F5400004FF3 /* GlobalConstant+Screen.swift in Sources */,
 				CBEEECEC296EA8BE008DD6B4 /* XGenEngine.swift in Sources */,

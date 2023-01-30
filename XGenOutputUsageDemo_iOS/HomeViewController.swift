@@ -146,54 +146,25 @@ class HomeViewController: UIViewController {
         }
         
         /* get image pixel rgb */
-        guard let cgImage = scaledImage.cgImage else {
+        guard let rgbaImage = RGBAImage(image: scaledImage) else {
             outputLabel.text = "Classification: get scaled image pixel image failed"
             choosePhotoButton.isEnabled = true
             return
         }
         
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let imageWidth = cgImage.width
-        let imageHeight = cgImage.height
-        let bytesPerPixel = 4
-        let bitsPerComponent = 8
-        let bytesPerRow = bytesPerPixel * imageWidth
-        let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Little.rawValue
-        
-        guard let context = CGContext(data: nil, width: imageWidth, height: imageHeight, bitsPerComponent: bitsPerComponent,
-                                      bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
-            outputLabel.text = "Classification: get scaled image pixel image failed"
-            choosePhotoButton.isEnabled = true
-            return
-        }
-        
-        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
-
-        guard let buffer = context.data else {
-            outputLabel.text = "Classification: get scaled image pixel image failed"
-            choosePhotoButton.isEnabled = true
-            return
-        }
-
-        let pixelBuffer = buffer.bindMemory(to: UInt32.self, capacity: imageWidth * imageHeight)
-        
-        var floatValues: [Float] = Array(repeating: 0, count: imageWidth * imageHeight * imageChannel)
+        var floatValues: [Float] = Array(repeating: 0, count: rgbaImage.width * rgbaImage.height * imageChannel)
         var index = 0
         
-        for i in 0 ..< Int(imageHeight) {
-            for j in 0 ..< Int(imageWidth) {
-                let offset = i * imageWidth + j
-                let color = pixelBuffer[offset]
+        for y in 0..<rgbaImage.height {
+            for x in 0..<rgbaImage.width {
+                let offset = y * rgbaImage.width + x
+                let outPixel = rgbaImage.pixels[offset]
                 
-                let r = (Float(UInt8((color >> 24) & 255)) / 255.0 - modelMean[0]) / modelStd[0]
-                let g = (Float(UInt8((color >> 16) & 255)) / 255.0 - modelMean[1]) / modelStd[1]
-                let b = (Float(UInt8((color >> 8) & 255)) / 255.0 - modelMean[2]) / modelStd[2]
-                
-                floatValues[index] = r
+                floatValues[index] = (Float(outPixel.R) / 255.0 - modelMean[0]) / modelStd[0]
                 index += 1
-                floatValues[index] = g
+                floatValues[index] = (Float(outPixel.G) / 255.0 - modelMean[1]) / modelStd[1]
                 index += 1
-                floatValues[index] = b
+                floatValues[index] = (Float(outPixel.B) / 255.0 - modelMean[2]) / modelStd[2]
                 index += 1
             }
         }
@@ -201,10 +172,11 @@ class HomeViewController: UIViewController {
         for _ in 0..<loopCount {
             let date = Date()
             guard let result = xgenEngine.run(floatValues) else { continue }
-            if let name = getClassication(result) {
+            if let (index, name) = getClassication(result) {
                 let now = Date()
                 let time = now.timeIntervalSince(date)
-                outputLabel.text = "Classification: \(name) \(max(1, Int(time * 1000)))ms"
+                outputLabel.numberOfLines = 0
+                outputLabel.text = "Classification: \(index) \(max(1, Int(time * 1000)))ms\n \(name)"
             } else {
                 outputLabel.text = "Classification: Detect error"
             }
@@ -228,7 +200,9 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         picker.dismiss(animated: true)
-        classify(image: image)
+        DispatchQueue.main.async {
+            self.classify(image: image)
+        }
     }
 }
 
@@ -293,7 +267,7 @@ private extension HomeViewController {
         return true
     }
     
-    func getClassication(_ result: [Float]) -> String? {
+    func getClassication(_ result: [Float]) -> (Int, String)? {
         guard result.isEmpty == false else { return nil }
         
         var index = -1
@@ -312,7 +286,7 @@ private extension HomeViewController {
             print("classication index: \(index)")
         }
         
-        return index > 0 ? labels[index] : nil
+        return index > 0 ? (index, labels[index]) : nil
     }
 }
 

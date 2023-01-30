@@ -34,7 +34,7 @@ extension ResourceLoadManager {
             return nil
         }
         
-        guard let modelURL = Bundle.main.url(forResource: "efficient_b0__1_", withExtension: "fallback") else {
+        guard let modelURL = Bundle.main.url(forResource: "efficientnet_b0_ra_3dd342df", withExtension: "fallback") else {
             print("local model load failed")
             return nil
         }
