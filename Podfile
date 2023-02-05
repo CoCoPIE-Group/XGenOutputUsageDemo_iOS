@@ -6,8 +6,6 @@ target 'XGenOutputUsageDemo_iOS' do
   pod 'SwiftyJSON'
   pod 'Toast-Swift'
   pod 'SnapKit'
-  
-  pod 'LookinServer'
 end
 
 post_install do |installer|

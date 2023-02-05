@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (5.6.4)
-  - LookinServer (1.1.5):
-    - LookinServer/Core (= 1.1.5)
-  - LookinServer/Core (1.1.5)
   - SnapKit (5.6.0)
   - SwiftyJSON (5.0.1)
   - Toast-Swift (5.0.1)
@@ -10,7 +7,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - LookinServer
   - SnapKit
   - SwiftyJSON
   - Toast-Swift
@@ -19,7 +15,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - LookinServer
     - SnapKit
     - SwiftyJSON
     - Toast-Swift
@@ -30,12 +25,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
-  LookinServer: 2893f2bae53cbf3fd49bbe1a8ea1745582ef1317
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   xgen: 72f408834465aa5a67be1d434058ee34f32ced44
 
-PODFILE CHECKSUM: 67dbc8e382f7ccb4dc7c5f8b619f838b3e55af58
+PODFILE CHECKSUM: 343a5e8bf4d4e177aa317ab661401a5004417ce6
 
 COCOAPODS: 1.11.3
