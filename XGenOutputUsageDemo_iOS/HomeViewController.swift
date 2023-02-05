@@ -66,9 +66,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func choosePhotoButtonPressed() {
-        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
-            return
-        }
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .photoLibrary
