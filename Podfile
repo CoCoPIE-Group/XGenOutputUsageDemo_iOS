@@ -2,7 +2,6 @@ platform :ios, '11.0'
 
 target 'XGenOutputUsageDemo_iOS' do
      pod 'xgen', :path => 'xgen'
-#    pod 'PureLayout'
 end
 
 post_install do |installer|
