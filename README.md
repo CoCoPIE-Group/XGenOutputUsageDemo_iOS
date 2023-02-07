@@ -5,7 +5,7 @@ Integration XGen output to iOS app demo. For the details on XGen's outputs for i
 
 ## 2 SDK Usage
 
-Among the XGen's output for iOS, the most useful components are `xxx.fallback` and `XGen.framework`. The former is the AI model, and the latter is the XGen's runtime that executes the AI model.
+Among the XGen's output for iOS, the most useful components are `xxx.fallback` and `XGen.framework`. The former is the AI model, and the latter is the XGen's runtime that executes the AI model. The use of the AI model through XGen can be seen in file `XGenOutputUsageDemo_iOS/XGenEngine.swift`, explained as follows.
 
 #### 2.1 Import XGen.framework
 
