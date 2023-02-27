@@ -12,15 +12,7 @@ class XGenEngine {
     init?(fallbackURL: URL) {
         guard FileManager.default.fileExists(atPath: fallbackURL.path) else { return nil }
         
-        guard let data = try? Data(contentsOf: fallbackURL) else {
-            print("load model error")
-            return nil
-        }
-        
-        data.withUnsafeBytes { rawBufferPointer in
-            let rawPtr = rawBufferPointer.baseAddress!
-            xgen = XGenInit(rawPtr, rawBufferPointer.count)
-        }
+        xgen = XGenInitWithFiles(fallbackURL.path, nil, XGenPowerDefault)
         
         guard xgen != nil else {
             print("init xgen failed")
