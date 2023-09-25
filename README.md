@@ -1,15 +1,19 @@
 ## 1 Introduction
 
-Integration XGen output to iOS app demo. For the details on XGen's outputs for iOS, please refer to [Doc](https://54.208.247.116/v1.1.0/5_Results/). 
+This is a demo app that demonstrates how to integrate XGen output files. For the details on XGen's outputs for iOS, please refer to [Doc](https://xgen.cocopie.ai/v1.3.0/5_Results/). 
 
 
 ## 2 SDK Usage
 
-Among the XGen's output for iOS, the most useful components are `xxx.fallback` and `XGen.framework`. The former is the AI model, and the latter is the XGen's runtime that executes the AI model. The use of the AI model through XGen can be seen in file `XGenOutputUsageDemo_iOS/XGenEngine.swift`, explained as follows.
+Among the XGen's output for iOS, the most useful components are `*.fallback` and `xgen.framework`. The former is the AI model, and the latter is the XGen's runtime that executes the AI model. The use of the AI model through XGen can be seen in file `XGenOutputUsageDemo_iOS/XGenEngine.swift`, explained as follows.
 
-#### 2.1 Import XGen.framework
+#### 2.1 Import xgen.framework
 
-XGen.framework is a normal iOS framework, you can use whatever methods for framework to integrate it in your iOS project. We use local private pod to integrate it in our demo. Please refer to `Podfile` and local `XGen` folder for details.
+Find the `*.fallback` file from the `*compiled_file/ios/benchmark_data` directory under XGen workplace, and put it into `XGenOutputUsageDemo_iOS/Resource` directory of this project. Change the file name to your own in `XGenOutputUsageDemo_iOS/XHomeViewController.swift`
+
+Find `xgen.framework` from `*compiled_file/ios/` under XGen workplace, and put it into `xgen/` directory of this project.
+
+`xgen.framework` is a normal iOS framework, you can use whatever methods for framework to integrate it in your iOS project. We use local private pod to integrate it in our demo. Please refer to `Podfile` and local `xgen` folder for details.
 
 #### 2.2 Initialize XGen
 
